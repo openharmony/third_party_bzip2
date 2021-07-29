@@ -22,6 +22,8 @@
 #ifndef _BZLIB_H
 #define _BZLIB_H
 
+#include <sys/types.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
