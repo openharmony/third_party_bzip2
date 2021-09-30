@@ -63,6 +63,11 @@ Note:If the text contains special characters, please escape them according to th
    in the file LICENSE." desc="文件为BSD 2-Clause License"/>
             </licensematcher>
         </licensematcherlist>
+        <policylist>
+            <policy name="projectPolicy" desc="">
+                <policyitem type="compatibility" name="bzip2 and libbzip2 License" path="LICENSE" desc="The bzip2 Project LICENSE"/>
+            </policy>
+        </policylist>
         <filefilterlist>
             <filefilter name="defaultFilter" desc="Files not to check">
                 <filteritem type="filename" name="sample*.*" desc="This is sample file, no need license"/>
