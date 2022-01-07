@@ -1,0 +1,39 @@
+{
+    "name": "@ohos/bzip2",
+    "version": "",
+    "description": "Third-party open-source software bzip2 | 三方开源软件bzip2",
+    "homePage": "https://gitee.com/openharmony",
+    "license": "Bzip2 License",
+    "repository": "https://gitee.com/openharmony/third_party_bzip2",
+    "domain": "os",
+    "language": "",
+    "publishAs": "code-segment",
+    "private": false,
+    "scripts": {},
+    "tags": [
+        "third_party"
+    ],
+    "keywords": [
+        "third-party",
+        "bzip2"
+    ],
+    "envs": [],
+    "dirs": [],
+    "segment": {
+        "destPath": "third_party/bzip2"
+    },
+    "component": {
+        "name": "thirdparty_bzip2",
+        "subsystem": "",
+        "syscap": [],
+        "features": [],
+        "adapted_system_type": [],
+        "rom": "",
+        "ram": "",
+        "build": {
+            "sub_component": [],
+            "inner_kits": [],
+            "test": []
+        }
+    }
+}
