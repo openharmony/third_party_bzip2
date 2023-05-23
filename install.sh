@@ -13,9 +13,7 @@ if [ -d "bzip2-1.0.8" ];then
 fi
 tar xvf bzip2-1.0.8.tar.gz
 cd $1/bzip2-1.0.8
-./configure
 patch -p1 < $1/0001-add-compile-option.patch --fuzz=0 --no-backup-if-mismatch
 patch -p1 < $1/0002-CVE-2019-12900.patch --fuzz=0 --no-backup-if-mismatch
 mv * ..
-rm -rf bzip2-1.0.8
 exit 0
