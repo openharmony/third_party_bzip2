@@ -76,6 +76,8 @@ Note:If the text contains special characters, please escape them according to th
                 <filteritem type="filename" name="manual.pdf" desc="This is manual pdf file, no need license"/>
                 <filteritem type="filename" name="LICENSE" desc="This is LICENSE file, no need license"/>
                 <filteritem type="filename" name="manual.xml" desc="This is manual xml file, no need license"/>
+                <filteritem type="filename" name="bzip2.spec" desc="This is project file, no need license"/>
+                <filteritem type="filename" name="install.sh" desc="This is project file, no need license"/>
             </filefilter>
         </filefilterlist>
     </oatconfig>
