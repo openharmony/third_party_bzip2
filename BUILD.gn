@@ -13,6 +13,9 @@
 
 import("//build/ohos.gni")
 
+bzip2_path = rebase_path("//third_party/bzip2")
+exec_script("install.sh", [ "$bzip2_path" ])
+
 config("bzip2_config") {
   include_dirs = [ "." ]
 }
