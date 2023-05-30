@@ -13,19 +13,22 @@
 
 import("//build/ohos.gni")
 
+bzip2_path = rebase_path("//third_party/bzip2")
+exec_script("install.sh", [ "$bzip2_path" ])
+
 config("bzip2_config") {
   include_dirs = [ "." ]
 }
 
 ohos_source_set("bzip2_src") {
   sources = [
-    "blocksort.c",
-    "bzlib.c",
-    "compress.c",
-    "crctable.c",
-    "decompress.c",
-    "huffman.c",
-    "randtable.c",
+    "bzip2-1.0.8/blocksort.c",
+    "bzip2-1.0.8/bzlib.c",
+    "bzip2-1.0.8/compress.c",
+    "bzip2-1.0.8/crctable.c",
+    "bzip2-1.0.8/decompress.c",
+    "bzip2-1.0.8/huffman.c",
+    "bzip2-1.0.8/randtable.c",
   ]
   configs = [ ":bzip2_config" ]
 }
