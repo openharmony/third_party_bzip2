@@ -8,11 +8,16 @@
 
 set -e
 cd $1
-if [ -d "bzip2-1.0.8" ];then
-    rm -rf bzip2-1.0.8
+if [ -d "tag" ];then
+    exit 0
 fi
+touch tag
 tar xvf bzip2-1.0.8.tar.gz
 cd $1/bzip2-1.0.8
-patch -p1 < $1/0001-add-compile-option.patch --fuzz=0 --no-backup-if-mismatch
 patch -p1 < $1/0002-CVE-2019-12900.patch --fuzz=0 --no-backup-if-mismatch
+patch -p1 < $1/0001-add-compile-option.patch --fuzz=0 --no-backup-if-mismatch
+mv * ..
+cd ..
+rm -rf bzip2-1.0.8
+rm -rf tag
 exit 0
