@@ -10,5 +10,5 @@ set -e
 cd $1
 tar xvf bzip2-1.0.8.tar.gz
 cd $1/bzip2-1.0.8
-cp * ..
+flock -x "README" -c "cp * .."
 exit 0
