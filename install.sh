@@ -8,6 +8,12 @@
 
 set -e
 cd $1
+if [ "$(uname)" == "Linux" ];then
+    flock -x "README" -c "tar xvf bzip2-1.0.8.tar.gz &&
+        cd bzip2-1.0.8 &&
+        cp * .."
+    exit 0
+fi
 tar xvf bzip2-1.0.8.tar.gz
 cd $1/bzip2-1.0.8
 cp * ..
