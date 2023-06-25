@@ -31,9 +31,15 @@ ohos_source_set("bzip2_src") {
     "randtable.c",
   ]
   configs = [ ":bzip2_config" ]
+
+  part_name = "bzip2"
+  subsystem_name = "thirdparty"
 }
 
 ohos_static_library("libbz2") {
   deps = [ ":bzip2_src" ]
   public_configs = [ ":bzip2_config" ]
+
+  part_name = "bzip2"
+  subsystem_name = "thirdparty"
 }
