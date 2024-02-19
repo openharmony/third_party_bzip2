@@ -26,7 +26,18 @@
         },
         "build": {
             "sub_component": [],
-            "inner_kits": [],
+            "inner_kits": [
+                {
+                    "name": "//third_party/bzip2:libbz2",
+                    "header": {
+                      "header_files": [
+                        "bzlib_private.h",
+                        "bzlib.h"
+                      ],
+                      "header_base": "//third_party/bzip2"
+                    }
+                }
+            ],
             "test": []
         }
     }
