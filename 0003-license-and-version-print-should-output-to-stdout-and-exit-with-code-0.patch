@@ -1,0 +1,48 @@
+From 65179284ceddc43e6388bf4ed8c2d85cf16e1b2f Mon Sep 17 00:00:00 2001
+From: Rikard Gynnerstedt <rikard.gynnerstedt@gmail.com>
+Date: Thu, 24 Oct 2019 12:48:57 +0200
+Subject: [PATCH] license and version print should output to stdout and exit
+ with code 0
+Reference: https://gitlab.com/bzip2/bzip2/-/commit/65179284ceddc43e6388bf4ed8c2d85cf16e1b2f
+Conflict: NA
+---
+ bzip2.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+ 
+diff --git a/bzip2.c b/bzip2.c
+index ed1a33f..6da2905 100644
+--- a/bzip2.c
++++ b/bzip2.c
+@@ -1600,7 +1600,7 @@ void testf ( Char *name )
+ static 
+ void license ( void )
+ {
+-   fprintf ( stderr,
++   fprintf ( stdout,
+ 
+     "bzip2, a block-sorting file compressor.  "
+     "Version %s.\n"
+@@ -1890,7 +1890,9 @@ IntNative main ( IntNative argc, Char *argv[] )
+                case '8': blockSize100k    = 8; break;
+                case '9': blockSize100k    = 9; break;
+                case 'V':
+-               case 'L': license();            break;
++               case 'L': license();
++                         exit ( 0 );
++                         break;
+                case 'v': verbosity++; break;
+                case 'h': usage ( progName );
+                          exit ( 0 );
+@@ -1916,8 +1918,8 @@ IntNative main ( IntNative argc, Char *argv[] )
+       if (ISFLAG("--keep"))              keepInputFiles   = True;    else
+       if (ISFLAG("--small"))             smallMode        = True;    else
+       if (ISFLAG("--quiet"))             noisy            = False;   else
+-      if (ISFLAG("--version"))           license();                  else
+-      if (ISFLAG("--license"))           license();                  else
++      if (ISFLAG("--version"))           { license(); exit ( 0 ); }  else
++      if (ISFLAG("--license"))           { license(); exit ( 0 ); }  else
+       if (ISFLAG("--exponential"))       workFactor = 1;             else 
+       if (ISFLAG("--repetitive-best"))   redundant(aa->name);        else
+       if (ISFLAG("--repetitive-fast"))   redundant(aa->name);        else
+-- 
+GitLab
