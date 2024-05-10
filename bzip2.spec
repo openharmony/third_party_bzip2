@@ -10,6 +10,7 @@ Source1:	bzip2.pc
 
 Patch0:		0001-add-compile-option.patch
 Patch1:		0002-CVE-2019-12900.patch
+Patch2:		0003-license-and-version-print-should-output-to-stdout-and-exit-with-code-0.patch
 
 BuildRequires:	gcc 
 
