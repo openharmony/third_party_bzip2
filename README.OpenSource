@@ -1,6 +1,6 @@
 [
   {
-    "Name": "Bzip2",
+    "Name": "openEuler:bzip2",
     "License": "Bzip2 License",
     "License File": "LICENSE",
     "Version Number": "1.0.8-6.oe2203sp3",
