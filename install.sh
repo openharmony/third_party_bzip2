@@ -13,14 +13,19 @@ if [ "$(uname)" == "Linux" ];then
     (
         flock -x 200
         for i in 1 2 3; do
-            tar xvf bzip2-1.0.8.tar.gz
-            sleep 3s
+            if [ -d "$1/bzip2-1.0.8" ];then
+                cp -rf bzip2-1.0.8/* ..
+                break
+            fi
+            tar zxvf bzip2-1.0.8.tar.gz
+            sleep 1s
             cd $1/bzip2-1.0.8
             if [ -f "Makefile" ] && [ -f "decompress.c" ] && [ -f "bzip2.c" ] && [ -f "Makefile-libbz2_so" ];then
                 patch -p1 < $1/0002-CVE-2019-12900.patch --fuzz=0 --no-backup-if-mismatch
                 patch -p1 < $1/0001-add-compile-option.patch --fuzz=0 --no-backup-if-mismatch
                 patch -p1 < $1/0003-license-and-version-print-should-output-to-stdout-and-exit-with-code-0.patch --fuzz=0 --no-backup-if-mismatch
                 cp -rf * ..
+                cd ..
                 break
             fi
             cd ..
@@ -28,19 +33,25 @@ if [ "$(uname)" == "Linux" ];then
         done
         exit 0
     )200>$1/test.lock
+else
+    for i in 1 2 3; do
+        if [ -d "$1/bzip2-1.0.8" ];then
+            cp -rf bzip2-1.0.8/* ..
+            break
+        fi
+        tar zxvf bzip2-1.0.8.tar.gz
+        sleep 1s
+        cd $1/bzip2-1.0.8
+        if [ -f "Makefile" ] && [ -f "decompress.c" ] && [ -f "bzip2.c" ] && [ -f "Makefile-libbz2_so" ];then
+            patch -p1 < $1/0002-CVE-2019-12900.patch --fuzz=0 --no-backup-if-mismatch
+            patch -p1 < $1/0001-add-compile-option.patch --fuzz=0 --no-backup-if-mismatch
+            patch -p1 < $1/0003-license-and-version-print-should-output-to-stdout-and-exit-with-code-0.patch --fuzz=0 --no-backup-if-mismatch
+            cp -rf * ..
+            cd ..
+            break
+        fi
+        cd ..
+        sleep 1s
+    done
 fi
-for i in 1 2 3; do
-    tar xvf bzip2-1.0.8.tar.gz
-    sleep 1s
-    cd $1/bzip2-1.0.8
-    if [ -f "Makefile" ] && [ -f "decompress.c" ] && [ -f "bzip2.c" ] && [ -f "Makefile-libbz2_so" ];then
-        patch -p1 < $1/0002-CVE-2019-12900.patch --fuzz=0 --no-backup-if-mismatch
-        patch -p1 < $1/0001-add-compile-option.patch --fuzz=0 --no-backup-if-mismatch
-        patch -p1 < $1/0003-license-and-version-print-should-output-to-stdout-and-exit-with-code-0.patch --fuzz=0 --no-backup-if-mismatch
-        cp -rf * ..
-        break
-    fi
-    cd ..
-    sleep 1s
-done
 exit 0
