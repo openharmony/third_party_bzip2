@@ -40,7 +40,6 @@ else
             break
         fi
         tar zxvf bzip2-1.0.8.tar.gz
-        sleep 1s
         cd $1/bzip2-1.0.8
         if [ -f "Makefile" ] && [ -f "decompress.c" ] && [ -f "bzip2.c" ] && [ -f "Makefile-libbz2_so" ];then
             patch -p1 < $1/0002-CVE-2019-12900.patch --fuzz=0 --no-backup-if-mismatch
@@ -51,7 +50,6 @@ else
             break
         fi
         cd ..
-        sleep 1s
     done
 fi
 exit 0
