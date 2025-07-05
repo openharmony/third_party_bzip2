@@ -34,15 +34,7 @@ ohos_source_set("bzip2_src") {
 }
 
 ohos_static_library("libbz2") {
-  sources = [
-    "blocksort.c",
-    "bzlib.c",
-    "compress.c",
-    "crctable.c",
-    "decompress.c",
-    "huffman.c",
-    "randtable.c",
-  ]
+  deps = [ ":bzip2_src" ]
   public_configs = [ ":bzip2_config" ]
 
   part_name = "bzip2"
