@@ -30,7 +30,6 @@ ohos_source_set("bzip2_src") {
   configs = [ ":bzip2_config" ]
 
   branch_protector_ret = "pac_ret"
-
   part_name = "bzip2"
   subsystem_name = "thirdparty"
 }
@@ -48,7 +47,6 @@ ohos_static_library("libbz2") {
   public_configs = [ ":bzip2_config" ]
 
   branch_protector_ret = "pac_ret"
-
   part_name = "bzip2"
   subsystem_name = "thirdparty"
 }
