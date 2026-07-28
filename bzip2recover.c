@@ -402,7 +402,7 @@ Int32 main ( Int32 argc, Char** argv )
             rbEnd[rbCtr] = bEnd[currBlock];
             rbCtr++;
          }
-         if (currBlock >= BZ_MAX_HANDLED_BLOCKS - 1)
+         if (currBlock >= BZ_MAX_HANDLED_BLOCKS)
             tooManyBlocks(BZ_MAX_HANDLED_BLOCKS);
          currBlock++;
 
